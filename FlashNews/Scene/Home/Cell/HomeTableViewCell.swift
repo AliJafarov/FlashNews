@@ -6,29 +6,38 @@
 //
 
 import UIKit
-import  SDWebImage
+import SDWebImage
 
 class HomeTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var describtionLabel: UILabel!
-    @IBOutlet weak var newsTitleLabel: UILabel!
-    @IBOutlet weak var newsImage: UIImageView!
+    @IBOutlet private weak var describtionLabel: UILabel!
+    @IBOutlet private weak var newsTitleLabel: UILabel!
+    @IBOutlet private weak var newsImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
     
     override func layoutSubviews() {
-          super.layoutSubviews()
-          //set the values for top,left,bottom,right margins
-          let margins = UIEdgeInsets(top: 5, left: 3, bottom: 5, right: 3)
-          contentView.frame = contentView.frame.inset(by: margins)
-          contentView.layer.cornerRadius = 5
+        super.layoutSubviews()
+        
+        newsImage.layer.cornerRadius = 7
+        //set the values for top,left,bottom,right margins
+        let margins = UIEdgeInsets(top: 5, left: 3, bottom: 5, right: 3)
+        contentView.frame = contentView.frame.inset(by: margins)
+        contentView.layer.cornerRadius = 5
+    }
+    
+    func configure(data: Article?) {
+        if let data = data {
+            newsTitleLabel.text = data.title ?? ""
+            describtionLabel.text = data.description ?? ""
+            
+            newsImage.sd_setImage(with: URL(string: data.urlToImage ?? ""), completed: nil)
+        }
     }
 
 }

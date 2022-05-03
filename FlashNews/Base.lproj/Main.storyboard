@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8ea-CU-Kzd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8ea-CU-Kzd">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -29,12 +29,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="DescribtionLabel" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rF-hU-EqV">
-                                                    <rect key="frame" x="2" y="124.5" width="257" height="13.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zuU-6c-S1V">
                                                     <rect key="frame" x="262" y="2" width="150" height="136"/>
                                                     <constraints>
@@ -45,6 +39,12 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRp-gd-tEs">
                                                     <rect key="frame" x="2" y="2" width="257" height="117.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="DescribtionLabel" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rF-hU-EqV">
+                                                    <rect key="frame" x="2" y="124.5" width="257" height="13.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -69,6 +69,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="dct-CW-hMh"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Qd9-L7-nkZ"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -87,7 +91,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="644.92753623188412" y="124.55357142857142"/>
+            <point key="canvasLocation" x="2445" y="-1543"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="hyT-o3-087">
@@ -101,7 +105,7 @@
                     <connections>
                         <segue destination="x68-rL-8df" kind="relationship" relationship="viewControllers" id="Tgr-jw-3Mh"/>
                         <segue destination="Xk6-vM-Ujd" kind="relationship" relationship="viewControllers" id="bUn-s2-vrb"/>
-                        <segue destination="P6J-qU-8m5" kind="relationship" relationship="viewControllers" id="LqO-SI-D25"/>
+                        <segue destination="oRP-ho-heM" kind="relationship" relationship="viewControllers" id="LqO-SI-D25"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nJK-6U-l4z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -137,7 +141,7 @@
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="efG-l7-JgV">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0Y9-BP-s3j">
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0Y9-BP-s3j">
                                                         <size key="itemSize" width="130" height="180"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -145,7 +149,7 @@
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionCell" id="8b0-4Q-Ky6" customClass="CollectionViewCell" customModule="FlashNews" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="130" height="180"/>
+                                                            <rect key="frame" x="0.0" y="10" width="130" height="180"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="urm-od-XjX">
                                                                 <rect key="frame" x="0.0" y="0.0" width="130" height="180"/>
@@ -182,6 +186,10 @@
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="xIK-cx-u45" id="7X4-MP-7Zt"/>
+                                                        <outlet property="delegate" destination="xIK-cx-u45" id="STl-u3-cBu"/>
+                                                    </connections>
                                                 </collectionView>
                                             </subviews>
                                             <constraints>
@@ -196,6 +204,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="d0N-vD-sMp" id="z3Y-dg-pgN"/>
+                                    <outlet property="delegate" destination="d0N-vD-sMp" id="QGo-I9-ZkG"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="w0V-Tj-j3Z"/>
@@ -218,7 +230,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H8k-VA-7FS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2457.971014492754" y="124.55357142857142"/>
+            <point key="canvasLocation" x="2458" y="-810"/>
         </scene>
         <!--Search Result View Controller-->
         <scene sceneID="4uB-eE-spw">
@@ -286,9 +298,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uv1-UH-871" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2457.971014492754" y="853.79464285714278"/>
+            <point key="canvasLocation" x="3272" y="-810"/>
         </scene>
-        <!--Saved-->
+        <!--View Controller-->
         <scene sceneID="XAa-Cd-gwz">
             <objects>
                 <viewController id="P6J-qU-8m5" sceneMemberID="viewController">
@@ -298,11 +310,11 @@
                         <viewLayoutGuide key="safeArea" id="lho-q3-pXN"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Saved" image="bookmark" catalog="system" id="E0A-pu-jfo"/>
+                    <navigationItem key="navigationItem" id="gTC-AO-nhb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mb6-cp-vpy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3291.304347826087" y="124.55357142857142"/>
+            <point key="canvasLocation" x="2445" y="-58"/>
         </scene>
         <!--Home-->
         <scene sceneID="9Om-OV-QIb">
@@ -321,7 +333,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zK4-f9-wef" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-265.21739130434787" y="124.55357142857142"/>
+            <point key="canvasLocation" x="1535" y="-1543"/>
         </scene>
         <!--Search-->
         <scene sceneID="Mf4-u0-C3h">
@@ -340,7 +352,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="82b-mx-Auv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1536" y="125"/>
+            <point key="canvasLocation" x="1535" y="-810"/>
+        </scene>
+        <!--Saved-->
+        <scene sceneID="dH7-XV-qld">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oRP-ho-heM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Saved" image="bookmark" catalog="system" id="E0A-pu-jfo"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ya0-Xi-PWq">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="P6J-qU-8m5" kind="relationship" relationship="rootViewController" id="QZU-nj-5fU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wG3-hT-M9d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1534.7826086956522" y="-57.589285714285708"/>
         </scene>
     </scenes>
     <resources>

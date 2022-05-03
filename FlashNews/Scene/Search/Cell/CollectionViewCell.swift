@@ -8,11 +8,8 @@
 import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
-    
-    
     @IBOutlet weak var newsImage: UIImageView!
-    @IBOutlet weak var newsTitle: UILabel!
-    
+    @IBOutlet weak var newsTitle: UILabel!    
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -7,16 +7,17 @@
 
 import Foundation
 import UIKit
+import SDWebImage
 
 class NewsHeader: UIView {
     
-    var headerImage: UIImageView = {
+    private var headerImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
-    var headerLabel: UILabel = {
+    private var headerLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
@@ -36,7 +37,6 @@ class NewsHeader: UIView {
     }
     
     private func applyConstraint() {
-        
         let headerImageConsTraints = [
             headerImage.topAnchor.constraint(equalTo: topAnchor, constant: 0),
             headerImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
@@ -55,4 +55,10 @@ class NewsHeader: UIView {
         NSLayoutConstraint.activate(headerLabelConstraint)
     }
     
+    func configure(data: Article?) {
+        if let data = data {
+            headerLabel.text = data.title
+            headerImage.sd_setImage(with: URL(string: data.urlToImage ?? ""), completed: nil)
+        }
+    }
 }
