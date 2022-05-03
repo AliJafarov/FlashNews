@@ -6,8 +6,8 @@
 //
 
 import UIKit
-import IQKeyboardManager
-import Alamofire
+//import IQKeyboardManager
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        IQKeyboardManager.shared().isEnabled = true
-        
+//        IQKeyboardManager.shared().isEnabled = true
+//
         return true
     }
 

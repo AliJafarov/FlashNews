@@ -11,12 +11,12 @@ import Alamofire
 class HomeViewModel {
     var items = [Article]() //strong
     
-    func getHomeData(searchText: String, complete: @escaping()->()) {
-        CoreRequest.shared.getSearchedNews(text: searchText) { [weak self] response in
+    func getHomeData(completeGetData: @escaping()->()) {
+        CoreRequest.shared.getHomeNews { [weak self] response in
             if let articles = response.articles {
                 self?.items = articles
             }
-            complete()
+            completeGetData()
         } failure: { errorMessage in
             
         }
