@@ -25,17 +25,16 @@ class HomeTableViewCell: UITableViewCell {
         super.layoutSubviews()
         
         newsImage.layer.cornerRadius = 7
-        //set the values for top,left,bottom,right margins
         let margins = UIEdgeInsets(top: 5, left: 3, bottom: 5, right: 3)
         contentView.frame = contentView.frame.inset(by: margins)
         contentView.layer.cornerRadius = 5
     }
     
     func configure(data: Article?) {
+        newsImage.layer.cornerRadius = 8
         if let data = data {
             newsTitleLabel.text = data.title ?? ""
             describtionLabel.text = data.description ?? ""
-            
             newsImage.sd_setImage(with: URL(string: data.urlToImage ?? ""), completed: nil)
         }
     }

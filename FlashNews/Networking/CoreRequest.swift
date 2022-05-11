@@ -12,10 +12,23 @@ class CoreRequest {
     static let shared = CoreRequest()
     
     let baseURL = "https://newsapi.org/v2/"
-    let apiKey = "a2a9accb37ba4bd9a7e99f10c3bdffc7"
+    let apiKey = "4a41f261620d4530a6722dc6270f4f78"
     
     func getHomeNews(complete: @escaping(Home)->(), failure: @escaping(String)->()) {
         AF.request("\(baseURL)top-headlines?country=us&apiKey=\(apiKey)").responseData { response in
+            if let data = response.data {
+                do {
+                    let homeResult = try JSONDecoder().decode(Home.self, from: data)
+                    complete(homeResult)
+                } catch {
+                    failure(error.localizedDescription)
+                }
+            }
+        }
+    }
+    
+    func getCountryNews(with country: String, complete: @escaping(Home)->(), failure: @escaping(String)->()) {
+        AF.request("\(baseURL)top-headlines?country=\(country)&apiKey=\(apiKey)").responseData { response in
             if let data = response.data {
                 do {
                     let homeResult = try JSONDecoder().decode(Home.self, from: data)
@@ -44,14 +57,12 @@ class CoreRequest {
     }
     
     
-    func getBusiness(complete: @escaping(Home)->(), failure: @escaping(String)->()) {
-        AF.request("\(baseURL)top-headlines?country=us&apiKey=\(apiKey)&category=business").responseData { response in
+    func getSelectedCategory(with category: String,  complete: @escaping(Home)->(), failure: @escaping(String)->()) {
+        AF.request("\(baseURL)top-headlines?apiKey=\(apiKey)&category=\(category)").responseData { response in
             if let data = response.data {
                 do {
                     let homeResult = try JSONDecoder().decode(Home.self, from: data)
-                    DispatchQueue.main.async {
-                    complete(homeResult)
-                    }
+                        complete(homeResult)
                 } catch {
                     failure(error.localizedDescription)
                 }
@@ -59,5 +70,16 @@ class CoreRequest {
         }
     }
     
-    
+    func getDefaultCategoryNews(complete: @escaping(Home)->(), failure: @escaping(String)->()) {
+        AF.request("\(baseURL)top-headlines?sources=bbc-news&apiKey=\(apiKey)").responseData { response in
+            if let data = response.data {
+                do {
+                    let homeResult = try JSONDecoder().decode(Home.self, from: data)
+                    complete(homeResult)
+                } catch {
+                    failure(error.localizedDescription)
+                }
+            }
+        }
+    }
 }

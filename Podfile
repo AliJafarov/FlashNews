@@ -9,6 +9,7 @@ target 'FlashNews' do
 
 pod 'Alamofire'
 pod 'SDWebImage', '~> 5.12'
-pod 'IQKeyboardManager'
-
+pod 'IQKeyboardManagerSwift', '6.3.0'
+pod 'IQDropDownTextField'
+pod 'DropDown', '2.3.13'
 end

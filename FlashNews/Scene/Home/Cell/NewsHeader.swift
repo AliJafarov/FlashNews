@@ -11,9 +11,14 @@ import SDWebImage
 
 class NewsHeader: UIView {
     
+    var url: String?
+    
     private var headerImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
+        image.isUserInteractionEnabled = true
+        image.layer.cornerRadius = 8
+
         return image
     }()
     
@@ -24,6 +29,7 @@ class NewsHeader: UIView {
         label.font = .systemFont(ofSize: 17, weight: .semibold)
         return label
     }()
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -57,6 +63,7 @@ class NewsHeader: UIView {
     
     func configure(data: Article?) {
         if let data = data {
+            url = data.url
             headerLabel.text = data.title
             headerImage.sd_setImage(with: URL(string: data.urlToImage ?? ""), completed: nil)
         }

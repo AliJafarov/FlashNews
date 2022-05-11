@@ -22,7 +22,7 @@ class ResultNewsController: UIViewController {
         
         view.addSubview(webView)
         webView.frame = view.bounds
-        
         webView.load(URLRequest(url: URL(string: url)!))
     }
+    
 }
