@@ -7,7 +7,7 @@
 
 import Foundation
 import CoreData
-import Alamofire
+import UIKit
 
 
 class DataPersistanceManager {
@@ -46,6 +46,17 @@ class DataPersistanceManager {
                 completion(.failure(error))
             }
         }
+    
+    func deleteNewsWith(model: NewsArticle) {
+               guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+               let context = appDelegate.persistentContainer.viewContext
+               context.delete(model)
+               do {
+                   try context.save()
+               } catch {
+                   print(error)
+               }
+           }
     
     
 }

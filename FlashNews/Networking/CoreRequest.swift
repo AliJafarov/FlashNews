@@ -9,6 +9,7 @@ import Foundation
 import Alamofire
 
 class CoreRequest {
+    
     static let shared = CoreRequest()
     
     let baseURL = "https://newsapi.org/v2/"
